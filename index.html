@@ -1,92 +1,223 @@
+HTML
 
-    
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    color: white;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Uzma ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     min-height: 100vh;
-    align-items: center;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ff758c, #ffb6c1, #ffd1dc);
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
 }
 
 .container {
-    padding: 25px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 18px;
+    position: relative;
+    z-index: 2;
 }
 
 h1 {
-    font-size: 35px;
+    font-size: clamp(35px, 8vw, 55px);
+    text-shadow: 2px 3px 8px #b83265;
+    margin-bottom: 15px;
     animation: glow 2s infinite alternate;
 }
 
+@keyframes glow {
+    from { text-shadow: 0 0 8px white; }
+    to { text-shadow: 0 0 25px #ff0066; }
+}
+
+.subtitle {
+    font-size: 21px;
+    margin-bottom: 25px;
+}
+
 .heart {
-    font-size: 65px;
-    animation: beat 1s infinite;
+    font-size: 75px;
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.25); }
+}
+
+.gift {
+    font-size: 85px;
+    margin: 20px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    50% { transform: translateY(-12px); }
 }
 
 button {
-    background: white;
-    color: #ff4081;
     border: none;
-    padding: 15px 25px;
+    background: #fff;
+    color: #e91e63;
+    padding: 15px 28px;
     border-radius: 30px;
     font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
+    box-shadow: 0 5px 15px #b83265;
+    margin: 10px;
 }
 
-#message {
+button:active {
+    transform: scale(.95);
+}
+
+#surprise {
     display: none;
-    font-size: 20px;
-    line-height: 1.7;
+    max-width: 520px;
+    background: rgba(255,255,255,.94);
+    color: #c2185b;
+    border-radius: 22px;
+    padding: 25px 20px;
+    margin-top: 20px;
+    line-height: 1.8;
+    box-shadow: 0 5px 25px rgba(120,0,50,.2);
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#surprise h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.signature {
+    margin-top: 18px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    animation: floatUp 7s linear forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+footer {
     margin-top: 25px;
-}
-
-@keyframes beat {
-    50% { transform: scale(1.3); }
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 5px white; }
-    to { text-shadow: 0 0 25px white; }
+    font-size: 14px;
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-<div class="heart">❤️</div>
+    <div class="heart">❤️</div>
 
-<h1>Happy Birthday Uzma! 🎂</h1>
+    <h1>Happy Birthday Uzma!</h1>
 
-<h2>My Special Person 💖</h2>
+    <p class="subtitle">
+        Today is all about you, my special person 💖
+    </p>
 
-<p>You make my world more beautiful!</p>
+    <div class="gift">🎁</div>
 
-<button onclick="showSurprise()">
-Open Your Surprise 🎁
-</button>
+    <p style="font-size:18px; margin-bottom:15px;">
+        I have a little surprise for you...
+    </p>
 
-<div id="message">
-<h2>Dear Uzma ❤️</h2>
+    <button onclick="openSurprise()">
+        Open Your Surprise 🎀
+    </button>
 
-You are the most special person in my life.
+    <div id="surprise">
+        <h2>Dear Uzma ❤️</h2>
 
-May your birthday bring endless happiness,
-beautiful memories and lots of love.
+        <p>
+            Happy Birthday to someone truly special!
+            May your life always be filled with happiness,
+            beautiful smiles, endless love and countless
+            reasons to celebrate.
+        </p>
 
-Keep smiling and shining forever.
+        <p style="margin-top:15px;">
+            You deserve all the beautiful things this world
+            has to offer. Keep smiling and keep shining.
+            May every dream of yours come true. ✨
+        </p>
 
-I am lucky to have you in my life.
+        <p style="font-size:30px; margin-top:18px;">
+            💐 🎂 💝
+        </p>
 
-<strong>Happy Birthday My Love! ❤️</strong>
-</div>
+        <div class="signature">
+            With lots of love ❤️
+        </div>
+    </div>
+
+    <footer>
+        Made with ❤️ just for Uzma
+    </footer>
 
 </div>
 
 <script>
-function showSurprise() {
-    document.getElementById("message").style.display = "block";
+function openSurprise() {
+    document.getElementById("surprise").style.display = "block";
+    document.querySelector("button").innerText = "Your Surprise is Opened ❤️";
+    document.getElementById("surprise").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
 }
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "floating-heart";
+    heart.innerHTML = ["❤️", "💕", "💗", "💖", "🌹"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 500);
 </script>
 
 </body>
