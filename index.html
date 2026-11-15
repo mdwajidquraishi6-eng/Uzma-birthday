@@ -219,6 +219,41 @@ function createHeart() {
 
 setInterval(createHeart, 500);
 </script>
+HTML
 
+<section id="birthday-surprise" style="text-align:center; padding:30px 15px; background:#fff0f6; border-radius:20px; margin:20px 0;">
+  <h2 style="color:#e84393;">🎂 Uzma's Birthday Countdown 🎂</h2>
+  <div id="countdown" style="font-size:25px; font-weight:bold; color:#d63384;">
+    Loading...
+  </div>
+  <p style="font-size:30px;">🎈 🎈 🎈 🎈 🎈</p>
+  <h3 style="color:#e84393;">Something Special Is Waiting For You ❤️</h3>
+</section>
+
+<script>
+function updateCountdown() {
+  const birthday = new Date("November 18, 2026 00:00:00").getTime();
+  const now = new Date().getTime();
+  const distance = birthday - now;
+
+  if (distance <= 0) {
+    document.getElementById("countdown").innerHTML =
+      "Happy Birthday Uzma! 🎂❤️";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  document.getElementById("countdown").innerHTML =
+    days + " Days " + hours + " Hours " +
+    minutes + " Minutes " + seconds + " Seconds";
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
